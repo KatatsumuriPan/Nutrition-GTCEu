@@ -32,7 +32,7 @@ public class ModMain {
 	public static CommonProxy proxy;
 
 	public static final Logger LOGGER = LogManager.getLogger(ModTagsGenerated.MODNAME);
-	
+
 	@Nullable
 	public static MinecraftServer server = null;
 
@@ -54,7 +54,7 @@ public class ModMain {
 	public static void onServerAboutToStart(FMLServerAboutToStartEvent event) {
 		server = event.getServer();
 	}
-	
+
 	@EventHandler
 	public static void onServerStopped(FMLServerStoppedEvent event) {
 		server = null;

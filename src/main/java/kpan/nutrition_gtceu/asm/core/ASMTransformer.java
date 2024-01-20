@@ -1,8 +1,7 @@
 package kpan.nutrition_gtceu.asm.core;
 
 import kpan.nutrition_gtceu.asm.core.adapters.MixinAccessorAdapter;
-import kpan.nutrition_gtceu.asm.tf.TF_FontRenderer;
-import kpan.nutrition_gtceu.asm.tf.TF_TileEntityFurnace;
+import kpan.nutrition_gtceu.asm.tf.TF_MetaItem;
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -30,8 +29,7 @@ public class ASMTransformer implements IClassTransformer {
 			//Adapterを通して書き換え出来るようにする。
 			ClassVisitor cv = cw;
 			cv = MixinAccessorAdapter.transformAccessor(cv, transformedName);
-			cv = TF_FontRenderer.appendVisitor(cv, transformedName);
-			cv = TF_TileEntityFurnace.appendVisitor(cv, transformedName);
+			cv = TF_MetaItem.appendVisitor(cv, transformedName);
 
 			if (cv == cw)
 				return bytes;
